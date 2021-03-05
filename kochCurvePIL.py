@@ -17,7 +17,7 @@ def line(startPos, length, direction, color=(255, 255, 255)):
     return end
 
 # 'd' means move down and right
-# 'u' means move up and right
+# 'u' means right
 # 'h' means move horizontally to the right
 
 
@@ -35,23 +35,26 @@ def update(system):
 def drawKoch(system, dist):
     global currentPos
     d = 0
+    c = 0
+    lines = str(len(system))
     for s in system:
+        print(str(c)+ '/' + lines, end='\r')
         if s == '-':
             d -= 60
         elif s == '+':
             d += 60
         elif s == 'h':
             currentPos = line(currentPos, dist, d, (255, 228, 122))
-
+        c += 1
 
 kochSystem = 'h'
 for i in range(7):
     kochSystem = update(kochSystem)
 
-distance = 6
-w = len(kochSystem) // 23 * 10
-h = len(kochSystem) // 8
-currentPos = (w // 64, h // 7)
+w = len(kochSystem) // 1893 * 739
+h = len(kochSystem) // 7
+distance = (len(kochSystem) / w) ** 2
+currentPos = (0, 1)
 
 print(w, h)
 im = Image.new('RGB', (w, h))
@@ -59,5 +62,5 @@ draw = Draw(im)
 drawKoch(kochSystem, distance)
 
 im = im.transpose(Image.FLIP_TOP_BOTTOM)
-im.show()
-im.save('kochCurve.png')
+print('ready')
+im.save('kochCurve.jpeg')
