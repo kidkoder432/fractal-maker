@@ -38,7 +38,7 @@ def drawKoch(system, dist):
     c = 0
     lines = str(len(system))
     for s in system:
-        print(str(c)+ '/' + lines, end='\r')
+        print(str(c) + '/' + lines, end='\r')
         if s == '-':
             d -= 60
         elif s == '+':
@@ -46,6 +46,7 @@ def drawKoch(system, dist):
         elif s == 'h':
             currentPos = line(currentPos, dist, d, (255, 228, 122))
         c += 1
+
 
 kochSystem = 'h'
 for i in range(7):

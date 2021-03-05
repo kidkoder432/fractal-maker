@@ -1,16 +1,12 @@
 import turtle as t
 
 
-
-
 kochSystem = 'h'
 scr = t.Screen()
 scr.screensize(10000, 10000)
 t.colormode(255)
 t.speed(0)
 
-
-    
 
 def line(startPos, length, color=(255, 255, 255)):
     t.pencolor(color)
@@ -33,7 +29,6 @@ def update(system):
     return newSystem
 
 
-
 def drawKoch(system, dist):
     global currentPos
     for s in system:
@@ -45,10 +40,10 @@ def drawKoch(system, dist):
             line(currentPos, dist, (255, 128, 100))
         currentPos = t.pos()
 
+
 distance = 5
 t.ht()
-t.bgcolor((0,0,0))
-
+t.bgcolor((0, 0, 0))
 
 
 currentPos = (-5000, 0)
@@ -56,7 +51,7 @@ t.pu()
 t.setpos(currentPos)
 t.pd()
 
-drawKoch(kochSystem, distance)   
+drawKoch(kochSystem, distance)
 currentPos = (-220, 0)
 t.pu()
 t.setpos(currentPos)
@@ -65,9 +60,7 @@ for i in range(5):
     kochSystem = update(kochSystem)
 
 
-
-
-drawKoch(kochSystem, distance)         
+drawKoch(kochSystem, distance)
 
 ts = t.getscreen()
 ts.getcanvas().postscript(file='kochcurve.eps')
@@ -75,4 +68,3 @@ print('done')
 
 
 t.done()
-
